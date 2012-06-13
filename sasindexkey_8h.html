@@ -111,7 +111,7 @@ const unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class=
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>API for defining binary Index keys for B-Trees. </p>
 <p>Intialize the <a class="el" href="structSASIndexKey__t.html" title="Index Key Handle structure for binary index B-trees.">SASIndexKey_t</a> structure with a sequence of values to be used as keys for SASIndex_t BTrees.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000015">Todo:</a></b></dt><dd>enhanse this API to build larger (multi-part) keys via a streams interface similar to interface in <a class="el" href="sphlfentry_8h.html" title="Shared Persistent Heap, logger/queue etc event entry status, update, and access functions.">sphlfentry.h</a>. We have enough to here to implement SPHContext_t but a generalized API would make SASIndex_t more useful.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000016">Todo:</a></b></dt><dd>Enhance this API to build larger (multi-part) keys via a streams interface similar to interface in <a class="el" href="sphlfentry_8h.html" title="Shared Persistent Heap, logger/queue etc event entry status, update, and access functions.">sphlfentry.h</a>. We have enough to here to implement SPHContext_t but a generalized API would make SASIndex_t more useful.</dd></dl>
 </div><hr/><h2>Function Documentation</h2>
 <a class="anchor" id="a112eba3525f089de89c796225ef3d4b0"></a><!-- doxytag: member="sasindexkey.h::SASIndexKeyCompare" ref="a112eba3525f089de89c796225ef3d4b0" args="(SASIndexKey_t *op_a, SASIndexKey_t *op_b)" -->
 <div class="memitem">
@@ -140,7 +140,7 @@ const unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class=
 
 <p>binary key compare logic for Index B-Tree keys. </p>
 <p>Optimized for comparing unsigned long integer word values that are the size of address pointers (void*) Also optimized for early (in the first or only word of the key) misscompare.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000016">Todo:</a></b></dt><dd>Need to fix this for little endian machines. Must use a machine_uint_t word compare to insure consistent comparison across types. Memcmp will not give the expect order on little endian machines.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000017">Todo:</a></b></dt><dd>Need to fix this for little endian machines. Must use a machine_uint_t word compare to insure consistent comparison across types. Memcmp will not give the expect order on little endian machines.</dd></dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">op_a</td><td>Handle of the left <a class="el" href="structSASIndexKey__t.html" title="Index Key Handle structure for binary index B-trees.">SASIndexKey_t</a>. </td></tr>
@@ -216,7 +216,7 @@ const unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class=
 
 <p>Initial a binary key @ destination with a signed Integer value. </p>
 <dl class="note"><dt><b>Note:</b></dt><dd>Need to flip the sign bit to get the correct ordering with a mix of signed and unsigned key values.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000018">Todo:</a></b></dt><dd>Need to fix this for 32-bit little endian machines by reversing the word order.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000019">Todo:</a></b></dt><dd>Need to fix this for 32-bit little endian machines by reversing the word order.</dd></dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">dest</td><td>Handle of the destination <a class="el" href="structSASIndexKey__t.html" title="Index Key Handle structure for binary index B-trees.">SASIndexKey_t</a>. </td></tr>
@@ -289,7 +289,7 @@ const unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class=
 <div class="memdoc">
 
 <p>Initial a binary key @ destination with a unsigned Integer value. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000017">Todo:</a></b></dt><dd>Need to fix this for 32-bit little endian machines by reversing the word order.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000018">Todo:</a></b></dt><dd>Need to fix this for 32-bit little endian machines by reversing the word order.</dd></dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">dest</td><td>Handle of the destination <a class="el" href="structSASIndexKey__t.html" title="Index Key Handle structure for binary index B-trees.">SASIndexKey_t</a>. </td></tr>

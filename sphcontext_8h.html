@@ -117,7 +117,7 @@ Functions</h2></td></tr>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Shared Persistent Heap, name/address context for shared memory multi-thread/multi-core applications. </p>
 <p>! Manages reversible associations between the name strings and the address values. Either (name or address) can be use to retrieve the other at a later time. In the current implementation name to address associations are one to one within an specific context. Nothing prevents different context instances from having the same names or address values. And also different contexts can have different names associated with the same address value.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>In a future implementation the intent is to allow multiple named associations to a common address value within the same context. However the restriction that a specific name can only be associated with one address value will remain.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd>In a future implementation the intent is to allow multiple named associations to a common address value within the same context. However the restriction that a specific name can only be associated with one address value will remain.</dd></dl>
 </div><hr/><h2>Typedef Documentation</h2>
 <a class="anchor" id="ad8728eed25450b6111b1c01d39fa8a3d"></a><!-- doxytag: member="sphcontext.h::SPHContext_t" ref="ad8728eed25450b6111b1c01d39fa8a3d" args="" -->
 <div class="memitem">
@@ -215,7 +215,7 @@ Functions</h2></td></tr>
 
 <p>Add a name/address mapping to this context. </p>
 <p>A reversible association is created between the name string and the address value. Either (name or address) can be use to retrieve the other at a later time. Within a context an address value can have multiple named associations, but an name can only be associated with one address value.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd>The intent is to support multiple name associations to a single value, but this is not currently implemented. But the application can always use multiple contexts to associate multiple names to an address value.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>The intent is to support multiple name associations to a single value, but this is not currently implemented. But the application can always use multiple contexts to associate multiple names to an address value.</dd></dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">contxt</td><td>context to be destroyed and the storage freed. </td></tr>

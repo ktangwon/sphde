@@ -155,7 +155,8 @@ Functions</h2></td></tr>
 <p>For shared memory multi-thread/multi-core applications. Once the SPHLFLogger_t functions have atomically allocated a Logger entry, the "entry" APIs supports adding additional data to the entry and retrieving that date later.</p>
 <p>Supported functions include: storing category specific event data, atomic completion of an entry, Getting entry status (complete and timestamped) Getting entry header elements (timestamp, PID, TID, Category, and Sub-category), Retrieving category specific event data entries, and direct pointer access the header and data of the entry.</p>
 <p>This Logger Entry access API supports read out of the 16 byte entry header including: Entry status and length. Entry Category and SubCategory codes. Process and Thread Ids. High resolution timestamp.</p>
-<p>Any additional storage allocated to the entry is available for application specific data. This API also provides several mechanisms to store application data including; direct array or structure overlay, and a streams like mechanism. Finally the API provides a completion functions (SPHLFLogEntryComplete) which provides and memory barriers required by the platform and marks the entry complete. </p>
+<p>Any additional storage allocated to the entry is available for application specific data. This API also provides several mechanisms to store application data including; direct array or structure overlay, and a streams like mechanism. Finally the API provides a completion functions (SPHLFLogEntryComplete) which provides and memory barriers required by the platform and marks the entry complete.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>This API should be migrated to use the common <a class="el" href="sphlfentry_8h.html" title="Shared Persistent Heap, logger/queue etc event entry status, update, and access functions.">sphlfentry.h</a> API. </dd></dl>
 </div><hr/><h2>Function Documentation</h2>
 <a class="anchor" id="ae0d2e43bf4178c6cad7d2cf9a06a0830"></a><!-- doxytag: member="sphlflogentry.h::SPHLFlogEntryAddChar" ref="ae0d2e43bf4178c6cad7d2cf9a06a0830" args="(SPHLFLoggerHandle_t *handle, char value)" -->
 <div class="memitem">
@@ -604,7 +605,8 @@ Functions</h2></td></tr>
 <div class="memdoc">
 
 <p>Return the address first free byte for the entry specified by the entry handle. </p>
-<dl class="note"><dt><b>Note:</b></dt><dd>This function should be used carefully. It is not safe to use if other application functions may need to update the same entry. It is also not safe to use for software that needs to cross platform because it does not handle platform specific size and alignment requirements. The SPHLOGENTRYALLOCSTRUCT/SPHLFlogEntryAllocStruct API is recommended for code that needs to operate cross platform.</dd></dl>
+<dl class="warning"><dt><b>Warning:</b></dt><dd>This function should be used carefully. It is not safe to use if other application functions may need to update the same entry. It is also not safe to use for software that needs to cross platform because it does not handle platform specific size and alignment requirements.</dd></dl>
+<dl class="note"><dt><b>Note:</b></dt><dd>The SPHLOGENTRYALLOCSTRUCT/SPHLFlogEntryAllocStruct API is recommended for code that needs to operate cross platform.</dd></dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">handle</td><td>Logger Entry Handle for an allocated entry. </td></tr>
@@ -881,7 +883,8 @@ Functions</h2></td></tr>
 <div class="memdoc">
 
 <p>Return the correctly aligned pointer for a struct or array starting at the next free location within the logger entry. </p>
-<p>The entries next pointer is adjusted for alignment and returned. The entries next pointer and remaining fields are updated for the next field following the struct/array. The SPHLOGENTRYGETSTRUCTPTR can be used to insure the correct usage sizeof and __alignof__ to provide values for the __size and __align parameters.</p>
+<p>The entries next pointer is adjusted for alignment and returned. The entries next pointer and remaining fields are updated for the next field following the struct/array.</p>
+<dl class="note"><dt><b>Note:</b></dt><dd>The SPHLOGENTRYGETSTRUCTPTR can be used to insure the correct usage sizeof and __alignof__ to provide values for the __size and __align parameters.</dd></dl>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">handle</td><td>Logger Entry Handle for an allocated entry. </td></tr>

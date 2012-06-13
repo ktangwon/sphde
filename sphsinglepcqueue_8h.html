@@ -259,7 +259,7 @@ Functions</h2></td></tr>
 </ul>
 <p>Any additional storage allocated to the entry (after the header) is available for application specific data. This API also provides several mechanisms to store application data including; direct array or structure overlay, and a streams like mechanism. The API provides a completion function (SPHSinglePCQueueEntryComplete) which provides any memory barriers required by the platform and marks the entry complete.</p>
 <p>The API support simple circular queues and requires a constant entry stride. A stride that matches or is multiple of the cache line size can improve performance by avoiding "false sharing" of cache lines containing multiple queue entries across cores/sockets.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000019">Todo:</a></b></dt><dd>Additional work will include automatic pacing with Hysteresis</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000020">Todo:</a></b></dt><dd>Additional work will include automatic pacing with Hysteresis</dd></dl>
 </div><hr/><h2>Define Documentation</h2>
 <a class="anchor" id="ae94b033dfdac96391001228e286f678d"></a><!-- doxytag: member="sphsinglepcqueue.h::SPHSPCQUEUE_CIRCULAR_RESETMASK" ref="ae94b033dfdac96391001228e286f678d" args="" -->
 <div class="memitem">

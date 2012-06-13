@@ -62,22 +62,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p class="enddd">A lock Free Compound Heap to compliment the SPH Lock Free Heap implementation of <a class="el" href="sphlockfreeheap_8h.html" title="Shared Persistent Heap, lock free heap allocator for shared memory multi-thread/multi-core applicatio...">sphlockfreeheap.h</a> would be a useful addition to the SAS/SPH runtime.</p>
 </dd>
 </dl>
-<p><a class="anchor" id="_todo000015"></a> </p>
+<p><a class="anchor" id="_todo000016"></a> </p>
 <dl>
 <dt>File <a class="el" href="sasindexkey_8h.html">sasindexkey.h</a>  </dt>
-<dd>enhanse this API to build larger (multi-part) keys via a streams interface similar to interface in <a class="el" href="sphlfentry_8h.html" title="Shared Persistent Heap, logger/queue etc event entry status, update, and access functions.">sphlfentry.h</a>. We have enough to here to implement SPHContext_t but a generalized API would make SASIndex_t more useful.</dd>
+<dd>Enhance this API to build larger (multi-part) keys via a streams interface similar to interface in <a class="el" href="sphlfentry_8h.html" title="Shared Persistent Heap, logger/queue etc event entry status, update, and access functions.">sphlfentry.h</a>. We have enough to here to implement SPHContext_t but a generalized API would make SASIndex_t more useful.</dd>
 </dl>
-<p><a class="anchor" id="_todo000016"></a> </p>
+<p><a class="anchor" id="_todo000017"></a> </p>
 <dl>
 <dt>Member <a class="el" href="sasindexkey_8h.html#a112eba3525f089de89c796225ef3d4b0">SASIndexKeyCompare</a> (<a class="el" href="structSASIndexKey__t.html" title="Index Key Handle structure for binary index B-trees.">SASIndexKey_t</a> *op_a, <a class="el" href="structSASIndexKey__t.html" title="Index Key Handle structure for binary index B-trees.">SASIndexKey_t</a> *op_b) </dt>
 <dd>Need to fix this for little endian machines. Must use a machine_uint_t word compare to insure consistent comparison across types. Memcmp will not give the expect order on little endian machines.</dd>
 </dl>
-<p><a class="anchor" id="_todo000018"></a> </p>
+<p><a class="anchor" id="_todo000019"></a> </p>
 <dl>
 <dt>Member <a class="el" href="sasindexkey_8h.html#a2035475ab05f2ecd5fcbcdcddcc02a71">SASIndexKeyInitInt64</a> (<a class="el" href="structSASIndexKey__t.html" title="Index Key Handle structure for binary index B-trees.">SASIndexKey_t</a> *dest, signed long long value) </dt>
 <dd>Need to fix this for 32-bit little endian machines by reversing the word order.</dd>
 </dl>
-<p><a class="anchor" id="_todo000017"></a> </p>
+<p><a class="anchor" id="_todo000018"></a> </p>
 <dl>
 <dt>Member <a class="el" href="sasindexkey_8h.html#a48e5e42b1e823431d213c296c9a9b9d4">SASIndexKeyInitUInt64</a> (<a class="el" href="structSASIndexKey__t.html" title="Index Key Handle structure for binary index B-trees.">SASIndexKey_t</a> *dest, unsigned long long value) </dt>
 <dd>Need to fix this for 32-bit little endian machines by reversing the word order.</dd>
@@ -119,27 +119,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <dt>File <a class="el" href="sassim_8h.html">sassim.h</a>  </dt>
 <dd>The current runtime restricts blocks to segment size or smaller. Creating larger blocks would require creating (power of 2) multiple segments (and backing files which have to memory mapped) while holding the global anchor block lock. Future releases may remove this restriction.</dd>
 </dl>
-<p><a class="anchor" id="_todo000014"></a> </p>
+<p><a class="anchor" id="_todo000015"></a> </p>
 <dl>
 <dt>File <a class="el" href="sasstringbtreeenum_8h.html">sasstringbtreeenum.h</a>  </dt>
 <dd>Create SASStringBTreeEnumCreateBetween SASStringBTreeEnumCreateStopBefore APIs </dd>
 </dl>
-<p><a class="anchor" id="_todo000013"></a> </p>
+<p><a class="anchor" id="_todo000014"></a> </p>
 <dl>
 <dt>Member <a class="el" href="sasstringbtree_8h.html#a0e100326f0b4664d3ae5edeeeb341c67">SASStringBTreeNearAlloc</a> (void *nearObj) </dt>
 <dd>I wonder if nearObj should be SASStringBTreeNode_t to made the usage/intent clear.</dd>
 </dl>
-<p><a class="anchor" id="_todo000011"></a> </p>
+<p><a class="anchor" id="_todo000012"></a> </p>
 <dl>
 <dt>File <a class="el" href="sphcontext_8h.html">sphcontext.h</a>  </dt>
 <dd>In a future implementation the intent is to allow multiple named associations to a common address value within the same context. However the restriction that a specific name can only be associated with one address value will remain.</dd>
 </dl>
-<p><a class="anchor" id="_todo000012"></a> </p>
+<p><a class="anchor" id="_todo000013"></a> </p>
 <dl>
 <dt>Member <a class="el" href="sphcontext_8h.html#a633bf063f164e3d6808d62fa6c1bacf7">SPHContextAddName</a> (SPHContext_t contxt, char *name, void *value) </dt>
 <dd>The intent is to support multiple name associations to a single value, but this is not currently implemented. But the application can always use multiple contexts to associate multiple names to an address value.</dd>
 </dl>
-<p><a class="anchor" id="_todo000019"></a> </p>
+<p><a class="anchor" id="_todo000011"></a> </p>
+<dl>
+<dt>File <a class="el" href="sphlflogentry_8h.html">sphlflogentry.h</a>  </dt>
+<dd>This API should be migrated to use the common <a class="el" href="sphlfentry_8h.html" title="Shared Persistent Heap, logger/queue etc event entry status, update, and access functions.">sphlfentry.h</a> API. </dd>
+</dl>
+<p><a class="anchor" id="_todo000020"></a> </p>
 <dl>
 <dt>File <a class="el" href="sphsinglepcqueue_8h.html">sphsinglepcqueue.h</a>  </dt>
 <dd>Additional work will include automatic pacing with Hysteresis</dd>
